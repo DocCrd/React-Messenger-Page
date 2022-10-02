@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 15 14" style="enable-background:new 0 0 15 14;" xml:space="preserve">
+<style type="text/css">
+	.st0{opacity:0.4;fill:#FFFFFF;enable-background:new    ;}
+	.st1{opacity:0.4;enable-background:new    ;}
+	#clicked{display:none;fill:gold;enable-background:new    ;}
+</style>
+<g id="unclicked">
+	<path class="st0" d="M10.1,8.8l0.6,3.7l-3.2-1.8l-3.3,1.8l0.6-3.7L2.1,5.9l3.8-0.5l1.6-3.5l1.6,3.5l3.8,0.5L10.1,8.8z M7.3,9.8
+		l2.9,0.9"/>
+	<path class="st1" d="M11,8.9l0.8,5.1l-4.3-2.4L3.2,14L4,8.9L0.5,5.4l4.8-0.7L7.5,0l2.2,4.6l4.8,0.7L11,8.9z M9.1,5.4L7.5,1.9
+		L5.9,5.4L2.1,5.9l2.8,2.9l-0.6,3.7l3.3-1.8l3.2,1.8l-0.6-3.7l2.8-2.8L9.1,5.4z"/>
+	<animate id="likey" attributeName="display" values="none" dur=".8s" begin="unclicked.click"/>
+	<animate id="unlike" attributeName="display" values="block" dur=".8s" begin="clicked.click"/>
+</g>
+<g id="clicked">
+	<path class="st2" d="M11,8.9l0.8,5.1l-4.3-2.4L3.2,14L4,8.9L0.5,5.4l4.8-0.7L7.5,0l2.2,4.6l4.8,0.7L11,8.9z"/>
+	<animate id="like" attributeName="display" values="block" dur=".8s" begin="unclicked.click"/>
+	<animate id="unlike" attributeName="display" values="none" dur=".8s" begin="clicked.click"/>
+</g>
+</svg>
