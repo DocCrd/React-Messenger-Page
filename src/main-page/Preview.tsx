@@ -11,6 +11,11 @@ const PreviewComponent = styled('div')`
 max-width: 200px;
 background-color: #C080FF70;
 flex: 1;
+@media screen and (max-width: 450px) {
+  & {
+    display: none;
+  }
+}
 `;
 const PreviewComponentImage = styled('img')`
 width: 12.5rem;

@@ -15,6 +15,11 @@ color: #B5B5B5;
 width: 16.5rem;
 display:flex;
 flex-direction: column;
+@media screen and (max-width: 450px) {
+  & {
+    display: none;
+  }
+}
 `;
 const SidebarComponentInsets = styled('div')`
 flex: 1;

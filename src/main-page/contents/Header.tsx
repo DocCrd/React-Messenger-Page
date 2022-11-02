@@ -21,6 +21,15 @@ border-bottom: 1px solid #00000040;
   margin: 0;
   padding: 0 .25rem;
 }
+
+@media screen and (max-width: 450px) {
+  .subscribes {
+    display: none;
+  }
+  .subscribe {
+    display: none;
+  }
+}
 `;
 const HeaderComponentSearchbarHolder = styled('div')`
 padding: 1.5rem  .625rem
@@ -37,6 +46,13 @@ flex: 1;
 	display: flex;
 	align-items: center;
 `;
+
+const Subscribes = styled('div')`
+
+p {
+  color: '#8D8D8D';
+}
+`;
 function Header() {
   return (
     <HeaderComponent>
@@ -52,19 +68,14 @@ function Header() {
           Your browser does not support SVG
         </object>
       </HeaderComponentHashtag>
-      <div className="subscribes">
+      <Subscribes className="subscribes">
         <img src="./icons/subscribers.svg" alt="subscribers ico" />
-        <p style={{ color: '#8D8D8D' }} className="qnt">
-          1,249
-        </p>
-      </div>
+        <p className="qnt">1,249</p>
+      </Subscribes>
       <HeaderComponentSearchbarHolder>
         <HeaderComponentSearchbar type="text" placeholder="Search.." />
       </HeaderComponentSearchbarHolder>
-      <div
-        style={{ display: 'flex', alignItems: 'center' }}
-        className="subscribe"
-      >
+      <div style={{ alignItems: 'center' }} className="subscribe">
         <object
           id="like-star"
           type="image/svg+xml"

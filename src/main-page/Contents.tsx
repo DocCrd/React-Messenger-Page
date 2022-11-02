@@ -17,6 +17,11 @@ max-width: 73.5rem;
 flex-direction: column;
 justify-content: space-between;
 heiht: 100%;
+@media screen and (max-width: 450px) {
+  & {
+    width: 90vw;
+  }
+}
 `;
 
 const MainContent = styled('div')`

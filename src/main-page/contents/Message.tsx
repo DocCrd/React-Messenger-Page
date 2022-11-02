@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Image from '../../components/image-placeholder/Image';
 
@@ -13,12 +14,23 @@ margin: 0.625rem 0;
 const MessagePhotoContainer = styled('div')`
 align-self: start;
 padding-right: 1rem;
+@media screen and (max-width: 450px) {
+  & {
+    padding-right: 0.5rem;
+  }
+}
 `;
 const MessageInfoContainer = styled('div')`
 display: flex;
 flex-direction: row;
 & p{
   margin: none;
+}
+
+@media screen and (max-width: 450px) {
+  & p{
+    align-self: center;
+  }
 }
 `;
 const MessageName = styled('p')`
@@ -67,17 +79,32 @@ function MessageSplitter(props) {
 }
 
 function Message(props) {
+  const [mediaQuery, setMediaQuery] = useState(false);
+
   function wrapMsg(msg) {
     if (msg instanceof Array) return msg;
     else return [msg];
   }
+  useEffect(() => {
+    console.log();
+    const handler = (e) => setMediaQuery(e.matches);
+    window.matchMedia('(max-width: 450px)').addEventListener('change', handler);
+  });
   return (
     <MessageContainer>
-      <MessagePhotoContainer>
-        <Image src={props.image} />
-      </MessagePhotoContainer>
+      {mediaQuery || (
+        <MessagePhotoContainer>
+          <Image src={props.image} />
+        </MessagePhotoContainer>
+      )}
+
       <div className="msg-contents">
         <MessageInfoContainer>
+          {mediaQuery && (
+            <MessagePhotoContainer>
+              <Image src={props.image} />
+            </MessagePhotoContainer>
+          )}
           <MessageName>{props.name}&nbsp;</MessageName>
           <MessageTime>{props.time}</MessageTime>
         </MessageInfoContainer>
