@@ -16,7 +16,7 @@ flex-grow: 5;
 max-width: 73.5rem;
 flex-direction: column;
 justify-content: space-between;
-heiht: 100%;
+height: 100%;
 @media screen and (max-width: 450px) {
   & {
     width: 90vw;
@@ -100,6 +100,72 @@ const rawMessages = [
     image: './icons/subscribers.svg',
     date: '2022-05-04T01:18+07:00',
   },
+  {
+    name: 'Sally Soil',
+    msg: [
+      'Типа этого:',
+      'http://g96814bs.beget.tech/static/img/denis_novik.jpeg',
+    ],
+    // image: 'https://source.unsplash.com/user/c_v_r',
+    image: './icons/subscribers.svg',
+    date: '2022-05-04T01:19+07:00',
+  },
+  {
+    name: 'Sally Soil',
+    msg: [
+      'Верхняя работа - резюме одного неизвестного мне, но явно талантливого дизайнера, перевыполненная мною на less.',
+      'Легко адаптивна, проста и привлекательна. А это - тестовое задание одного из работодателей, моя готовность его выполнить была окуплена сполна и меня пригласили на работу, но по некоторым обстоятельствам я отказался. Выполнена на vue-cli и Tailwind, обязательным условием было ssr и рендер фотографий on-demand, только при скролле на них.',
+      'http://g96814bs.beget.tech/static/img/vue-tailwind.jpeg',
+    ],
+    // image: 'https://source.unsplash.com/user/c_v_r',
+    image: './icons/subscribers.svg',
+    date: '2022-05-04T01:22+07:00',
+  },
+  {
+    name: 'Sally Soil',
+    msg: [
+      'Ниже верстка, снова с применением less',
+      'http://g96814bs.beget.tech/static/img/activity-page.jpeg',
+    ],
+    // image: 'https://source.unsplash.com/user/c_v_r',
+    image: './icons/subscribers.svg',
+    date: '2022-05-04T01:23+07:00',
+  },
+  {
+    name: 'Sally Soil',
+    msg: [
+      'Далее - нечто более интересное: целый магазин на express-hbs-bootstrap-mysql, с полноценными авторизациями и админ панелями, одна из ранних написанных мною вещей, не знаю, чего добился я сейчас, но шаблонизаторами вроде pug я теперь пользоваться не стремлюсь.',
+      'http://g96814bs.beget.tech/static/img/as-one.jpeg',
+      'http://g96814bs.beget.tech/static/img/as-two.jpeg',
+    ],
+    // image: 'https://source.unsplash.com/user/c_v_r',
+    image: './icons/subscribers.svg',
+    date: '2022-05-04T01:24+07:00',
+  },
+  {
+    name: 'Sally Soil',
+    msg: [
+      'Кажется, что таблизы - это моя страсть, но это не так... Вот два примера функциональных редакторов, в одном из них можно регулировать ширину столбцов в реальном времени, просто потянув за правую часть ячейки. Если не магия, то что это?',
+      'http://g96814bs.beget.tech/static/img/table-one.jpeg',
+      'http://g96814bs.beget.tech/static/img/table-two.png',
+    ],
+    // image: 'https://source.unsplash.com/user/c_v_r',
+    image: './icons/subscribers.svg',
+    date: '2022-05-04T01:26+07:00',
+  },
+  {
+    name: 'Sally Soil',
+    msg: [
+      'Пара работ с объектами, если вы узнали вторую, я выражаю вам своё уважение.',
+      'http://g96814bs.beget.tech/static/img/grid-obj.png',
+      'http://g96814bs.beget.tech/static/img/his-game.png',
+      'Скриншоты сделаны с помощью puppeteer, программы для web-скраппинга. Ещё могу похвастаться работой с telegram-api и yandex.cloud и может быть чем-то ещё...',
+      'Должно быть вы найдёте некоторые из этих вещей в моём гит репозитории, можете просмотреть два скромных проекта на стакБлитз',
+    ],
+    // image: 'https://source.unsplash.com/user/c_v_r',
+    image: './icons/subscribers.svg',
+    date: '2022-05-04T01:27+07:00',
+  },
 ];
 
 function Contents() {
@@ -107,6 +173,7 @@ function Contents() {
   const [imageOpened, setOpened] = useState(false);
   const [messages, setMessages] = useState(rawMessages);
   const [lastMessage, setLastMessage] = useState(messages[messages.length - 1]);
+  const [scrolled, setScrolled] = useState(false);
 
   const days = [
     'Понедельник',
@@ -219,8 +286,11 @@ function Contents() {
     document.querySelector(
       '#main-content > div:nth-child(2) > div:nth-child(1)'
     ).style.marginBottom = '0';
-    // setTimeout(scrollToBottom, 300);
   });
+  useEffect(() => {
+    setTimeout(scrollToBottom, 500);
+    setScrolled(true);
+  }, [scrolled]);
 
   return (
     <Content>

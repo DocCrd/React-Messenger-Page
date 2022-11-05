@@ -16,14 +16,15 @@ ${(props) =>
   padding: 1rem 0;
   z-index: 40;
 `}
-
-	
 `;
-
+const Image = styled('img')`
+height: 100%;
+width: auto;
+`;
 const ImageView = (props) => {
   return (
     <View onClick={props.click} open={props.isOpen}>
-      {props.isOpen && <img src={props.image} alt="" />}
+      {props.isOpen && <Image src={props.image} alt="" />}
     </View>
   );
 };
